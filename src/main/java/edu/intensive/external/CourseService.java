@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(name="course", url="localhost:8081")
+@FeignClient(name="course", url="${feign.course.url}")
 public interface CourseService {
     @RequestMapping(method = RequestMethod.GET, path="/courses")
     public String selectAll();
