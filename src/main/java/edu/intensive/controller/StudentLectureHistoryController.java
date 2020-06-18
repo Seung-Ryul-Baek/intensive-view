@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class StudentLectureHistoryController {
     @Autowired
     StudentLectureHistoryService studentLectureHistoryService;
-    @GetMapping(value = "/view/{studentId}/{courseId}", produces = "application/json;charset=UTF-8")
+    @GetMapping(value = "/studentLectureHistories/view/{studentId}/{courseId}", produces = "application/json;charset=UTF-8")
     public String studentLectureHistory(@PathVariable Long studentId, @PathVariable Long courseId) {
         StudentLectureHistory studentLectureHistory = studentLectureHistoryService.getStudentLectureHistory(courseId, studentId);
             Student student = ViewApplication
