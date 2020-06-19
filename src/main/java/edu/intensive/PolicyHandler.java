@@ -1,10 +1,7 @@
 package edu.intensive;
 
 import edu.intensive.config.kafka.KafkaProcessor;
-import edu.intensive.event.LectureCanceled;
-import edu.intensive.event.LectureCompleted;
-import edu.intensive.event.LectureRequested;
-import edu.intensive.event.PaymentApproved;
+import edu.intensive.event.*;
 import edu.intensive.external.Course;
 import edu.intensive.external.CourseService;
 import edu.intensive.external.Student;
@@ -24,6 +21,19 @@ public class PolicyHandler {
     @StreamListener(KafkaProcessor.INPUT)
     public void onEvent(@Payload String message) {
     }
+    @StreamListener(KafkaProcessor.INPUT)
+    public void wheneverLectureRequested(@Payload LectureApproved lectureApproved) {
+        if(lectureApproved.isMe()){
+
+        }
+    }
+    @StreamListener(KafkaProcessor.INPUT)
+    public void wheneverLectureRequested(@Payload LectureEvaluated lectureEvaluated) {
+        if(lectureEvaluated.isMe()) {
+
+        }
+    }
+
     @StreamListener(KafkaProcessor.INPUT)
     public void wheneverLectureRequested(@Payload LectureRequested lectureRequested) {
         if (lectureRequested.isMe()) {
